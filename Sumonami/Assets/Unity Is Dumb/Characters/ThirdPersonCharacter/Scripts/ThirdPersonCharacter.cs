@@ -15,6 +15,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		[SerializeField] float m_MoveSpeedMultiplier = 1f;
 		[SerializeField] float m_AnimSpeedMultiplier = 1f;
 		[SerializeField] float m_GroundCheckDistance = 0.1f;
+        public float knockupThreshold = 1f;
 
 		Rigidbody m_Rigidbody;
 		Animator m_Animator;
@@ -30,6 +31,9 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		bool m_Crouching;
 
         RippleDeformer currentRippleSurface;
+        bool immuneToKnockup = false;
+        float immunityFromKnockupTimer = 0f;
+        public float IMMUNITY_DURATION = 2f;
 
 
 		void Start()
@@ -44,10 +48,21 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			m_OrigGroundCheckDistance = m_GroundCheckDistance;
 		}
 
+        void Update()
+        {
+            if(immuneToKnockup)
+            {
+                immunityFromKnockupTimer -= Time.deltaTime;
+                if(immunityFromKnockupTimer <= 0f)
+                {
+                    immuneToKnockup = false;
+                }
+            }
+        }
 
 		public void Move(Vector3 move, bool crouch, bool jump)
 		{
-            print(m_Rigidbody.velocity.y);
+            //print(m_Rigidbody.velocity.y);
 			// convert the world relative moveInput vector into a local-relative
 			// turn amount and forward amount required to head in the desired
 			// direction.
@@ -224,6 +239,16 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                     pos.y = height;
                     transform.position = pos;
                     m_Rigidbody.useGravity = false;
+
+                    // if height is greater than knockup threshold, knock the character into the air
+                    if(!immuneToKnockup && height - currentRippleSurface.transform.position.y > knockupThreshold)
+                    {
+                        m_Rigidbody.velocity = new Vector3(m_Rigidbody.velocity.x, m_JumpPower, m_Rigidbody.velocity.z);
+                        m_IsGrounded = false;
+                        m_Animator.applyRootMotion = false;
+                        m_GroundCheckDistance = 0.1f;
+                        m_Rigidbody.useGravity = true;
+                    }
                 }
                 else
                 {
@@ -235,8 +260,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                     m_Rigidbody.useGravity = true;
                 }
             }
-
-            if(!m_IsGrounded)
+            else if(!m_IsGrounded)
             {
                 if (Physics.Raycast(transform.position + (Vector3.up * 0.1f), Vector3.down, out hitInfo))
                 {
@@ -246,14 +270,16 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                         currentRippleSurface = ripple;
                         // Sample the height of the ripple surface
                         float height = currentRippleSurface.sampleMeshHeight(hitInfo);
-                        // Check if we can land
-                        if (transform.position.y - height <= m_GroundCheckDistance)
+                        // Check if we can land (we are close to the ground and our velocity is downwards
+                        if (transform.position.y - height <= m_GroundCheckDistance && m_Rigidbody.velocity.y <= 0)
                         {
-                            // We've hit the ripple surface
+                            // We've hit the ripple surface, grant us knockup immunity
+                            immuneToKnockup = true;
+                            immunityFromKnockupTimer = IMMUNITY_DURATION;
                             // Scale the mesh hit force based on the downward velocity
                             float velocity = -m_Rigidbody.velocity.y;
 
-                            currentRippleSurface.splashDiameter = (int)Mathf.Lerp(5, 25, velocity / 20);
+                            currentRippleSurface.splashDiameter = (int)Mathf.Lerp(5, 15, velocity / 20);
                             currentRippleSurface.hitMesh(hitInfo);
 
                             m_GroundNormal = hitInfo.normal;
