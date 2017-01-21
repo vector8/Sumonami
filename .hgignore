@@ -3,3 +3,4 @@ syntax: glob
 MeshDeformerTest/Library/
 *.csproj
 *.sln
+MeshDeformerTest/Temp/
