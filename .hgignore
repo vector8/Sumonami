@@ -1,0 +1,5 @@
+syntax: glob
+*.suo
+MeshDeformerTest/Library/
+*.csproj
+*.sln
