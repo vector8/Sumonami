@@ -140,8 +140,8 @@ public class RippleDeformer : MonoBehaviour
         float zStep = (bounds.max.z - bounds.min.z) / rows;
         float xAcross = (worldPosition.x - transform.position.x + (width / 2f)) / width;
         float zAcross = (worldPosition.z - transform.position.z + (depth / 2f)) / depth;
-        float xCoord = width - (width * xAcross);
-        float zCoord = depth - (depth * zAcross);
+        float xCoord = (width * xAcross);
+        float zCoord = (depth * zAcross);
         float x = (xCoord / xStep);// + 0.5;
         float y = (zCoord / zStep);// + 0.5;
         int position = (((int)y * (cols + 1)) + (int)x);
