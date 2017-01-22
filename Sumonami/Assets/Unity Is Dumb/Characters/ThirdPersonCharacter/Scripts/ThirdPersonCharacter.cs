@@ -7,6 +7,10 @@ namespace UnityStandardAssets.Characters.ThirdPerson
     [RequireComponent(typeof(Animator))]
     public class ThirdPersonCharacter : MonoBehaviour
     {
+        public AudioSource fall;
+        public AudioClip falling;
+        public AudioClip grunt;
+
         [SerializeField]
         float m_MovingTurnSpeed = 360;
         [SerializeField]
@@ -46,7 +50,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         float immunityFromKnockupTimer = 0f;
         public float IMMUNITY_DURATION = 2f;
 
-
+        Vector3 m_LastValidPosition; //joss
         void Start()
         {
             m_Animator = GetComponent<Animator>();
@@ -54,9 +58,12 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             m_Capsule = GetComponent<CapsuleCollider>();
             m_CapsuleHeight = m_Capsule.height;
             m_CapsuleCenter = m_Capsule.center;
+            //audio = GetComponent<AudioSource>();
 
             m_Rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
             m_OrigGroundCheckDistance = m_GroundCheckDistance;
+
+            m_LastValidPosition = m_Rigidbody.position; //joss
         }
 
         void Update()
@@ -159,6 +166,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             if (!m_IsGrounded)
             {
                 m_Animator.SetFloat("Jump", m_Rigidbody.velocity.y);
+
             }
 
             // calculate which leg is behind, so as to leave that leg trailing in the jump animation
@@ -221,6 +229,10 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                 m_GroundCheckDistance = 0.1f;
                 m_Rigidbody.useGravity = true;
                 sumoAnimator.Play("Player_Jump");
+                fall.clip = grunt;
+                fall.Play();
+
+                m_LastValidPosition = m_Rigidbody.position; //joss
             }
         }
 
@@ -320,6 +332,9 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                             // Instantiate ground smash particles
                             GameObject g = Instantiate<GameObject>(hitGroundParticles);
                             g.transform.position = transform.position;
+
+                            fall.clip = falling;
+                            fall.Play();
                         }
                     }
                     else    // We are above a surface that cannot ripple
@@ -338,6 +353,20 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                         //}
                     }
                 }
+            }
+        }
+        void revertPosition() //joss
+        {
+            m_Rigidbody.velocity = new Vector3(0, 0, 0);
+            m_LastValidPosition = new Vector3(m_LastValidPosition.x, m_LastValidPosition.y, m_LastValidPosition.z);
+            this.GetComponent<Transform>().position = m_LastValidPosition;
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.tag == "kill field")
+            {
+                revertPosition();
             }
         }
     }
