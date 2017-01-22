@@ -5,6 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public GameObject m_FoodPrefab;
+    public GameObject smokeParticlesPrefab;
     public float m_Speed;
     public float m_DistanceToAttack;
     public float detectionDistance;
@@ -74,6 +75,9 @@ public class Enemy : MonoBehaviour
         food.transform.position = transform.position;
         Food f = food.GetComponent<Food>();
         f.rippleSurface = currentRippleSurface;
+
+        GameObject smoke = Instantiate<GameObject>(smokeParticlesPrefab);
+        smoke.transform.position = transform.position;
         
         Destroy(gameObject);
     }
