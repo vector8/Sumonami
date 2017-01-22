@@ -334,7 +334,7 @@ ModelImporter:
       name: rookie_jump
       takeName: Take 001
       firstFrame: 61
-      lastFrame: 74
+      lastFrame: 70
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -441,7 +441,7 @@ ModelImporter:
     - serializedVersion: 16
       name: rookie_fall
       takeName: Take 001
-      firstFrame: 69
+      firstFrame: 70
       lastFrame: 77
       wrapMode: 0
       orientationOffsetY: 0
