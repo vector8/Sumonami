@@ -35,7 +35,7 @@ public class Food : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            collision.gameObject.GetComponent<Player>().m_TotalWeight += m_weight;
+            collision.gameObject.GetComponent<Player>().addWeight(m_weight);
             Destroy(gameObject);
         }
     }

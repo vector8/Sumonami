@@ -16,6 +16,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		[SerializeField] float m_AnimSpeedMultiplier = 1f;
 		[SerializeField] float m_GroundCheckDistance = 0.1f;
         public float knockupThreshold = 1f;
+        public GameObject hitGroundParticles;
 
 		Rigidbody m_Rigidbody;
 		Animator m_Animator;
@@ -57,6 +58,12 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                 {
                     immuneToKnockup = false;
                 }
+            }
+
+            if(!m_IsGrounded)
+            {
+                Vector3 velocity = transform.forward * m_ForwardAmount * 5;
+                m_Rigidbody.velocity = new Vector3(velocity.x, m_Rigidbody.velocity.y, velocity.z);
             }
         }
 
@@ -286,22 +293,26 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                             m_IsGrounded = true;
                             m_Animator.applyRootMotion = true;
                             m_Rigidbody.useGravity = false;
+
+                            // Instantiate ground smash particles
+                            GameObject g = Instantiate<GameObject>(hitGroundParticles);
+                            g.transform.position = transform.position;
                         }
                     }
                     else    // We are above a surface that cannot ripple
                     {
-                        if (Vector3.Distance(hitInfo.point, transform.position) < m_GroundCheckDistance)
-                        {
-                            m_GroundNormal = hitInfo.normal;
-                            m_IsGrounded = true;
-                            m_Animator.applyRootMotion = true;
-                        }
-                        else
-                        {
-                            m_IsGrounded = false;
-                            m_GroundNormal = Vector3.up;
-                            m_Animator.applyRootMotion = false;
-                        }
+                        //if (Vector3.Distance(hitInfo.point, transform.position) < m_GroundCheckDistance)
+                        //{
+                        //    m_GroundNormal = hitInfo.normal;
+                        //    m_IsGrounded = true;
+                        //    m_Animator.applyRootMotion = true;
+                        //}
+                        //else
+                        //{
+                        //    m_IsGrounded = false;
+                        //    m_GroundNormal = Vector3.up;
+                        //    m_Animator.applyRootMotion = false;
+                        //}
                     }
                 }
             }
