@@ -7,6 +7,10 @@ namespace UnityStandardAssets.Characters.ThirdPerson
     [RequireComponent(typeof(Animator))]
     public class ThirdPersonCharacter : MonoBehaviour
     {
+        public AudioSource fall;
+        public AudioClip falling;
+        public AudioClip grunt;
+
         [SerializeField]
         float m_MovingTurnSpeed = 360;
         [SerializeField]
@@ -54,6 +58,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             m_Capsule = GetComponent<CapsuleCollider>();
             m_CapsuleHeight = m_Capsule.height;
             m_CapsuleCenter = m_Capsule.center;
+            //audio = GetComponent<AudioSource>();
 
             m_Rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
             m_OrigGroundCheckDistance = m_GroundCheckDistance;
@@ -159,6 +164,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             if (!m_IsGrounded)
             {
                 m_Animator.SetFloat("Jump", m_Rigidbody.velocity.y);
+
             }
 
             // calculate which leg is behind, so as to leave that leg trailing in the jump animation
@@ -221,6 +227,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                 m_GroundCheckDistance = 0.1f;
                 m_Rigidbody.useGravity = true;
                 sumoAnimator.Play("Player_Jump");
+                fall.clip = grunt;
+                fall.Play();
             }
         }
 
@@ -320,6 +328,9 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                             // Instantiate ground smash particles
                             GameObject g = Instantiate<GameObject>(hitGroundParticles);
                             g.transform.position = transform.position;
+
+                            fall.clip = falling;
+                            fall.Play();
                         }
                     }
                     else    // We are above a surface that cannot ripple
