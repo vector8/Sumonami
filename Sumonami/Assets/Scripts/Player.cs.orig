@@ -1,15 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
     public float m_TotalWeight;
     public float MAX_WEIGHT;
     public float damage;
-    public AudioClip eatFood;
-    public AudioSource audio;
 
     public ScaleUIControl scaleUI;
 
@@ -33,8 +30,10 @@ public class Player : MonoBehaviour
     {
         m_TotalWeight += weight;
         scaleUI.setWeight(m_TotalWeight / MAX_WEIGHT);
-        audio.clip = eatFood;
-        audio.Play();
+<<<<<<< working copy
+    }
+}
+=======
     }
 
     public void removeWeight(float weight)
@@ -43,9 +42,10 @@ public class Player : MonoBehaviour
         if(m_TotalWeight <= 0)
         {
             m_TotalWeight = 0;
-            SceneManager.LoadScene("MenuScene");
+            // TODO: die
         }
 
         scaleUI.setWeight(m_TotalWeight / MAX_WEIGHT);
     }
 }
+>>>>>>> merge rev

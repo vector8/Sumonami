@@ -9,12 +9,15 @@ public class flyingParticleTrail : MonoBehaviour {
     public float triggerSpeed;
     public float scaleByObjectSpeed;
     public float maxScale;
+    private float emitRate;
 	// Use this for initialization
 	void Start ()
     {
         physicsBody = this.GetComponent<Rigidbody>();
         flyingParticleSystem = this.GetComponentInChildren<ParticleSystem>();
-        flyingParticleSystem.Stop();
+        emitRate = flyingParticleSystem.emissionRate;
+        flyingParticleSystem.emissionRate = 0;
+        flyingParticleSystem.Play();
     }
 	
 	// Update is called once per frame
@@ -22,10 +25,10 @@ public class flyingParticleTrail : MonoBehaviour {
     {
         float speed = physicsBody.velocity.magnitude;
         flyingParticleSystem.startSize = Mathf.Min(maxScale, scaleByObjectSpeed * speed);
-        if (flyingParticleSystem.isPaused && (speed >= triggerSpeed)) //does c# do lazy evaluation from left to right or right to left
+        if (speed >= triggerSpeed) //does c# do lazy evaluation from left to right or right to left
         {
-            flyingParticleSystem.Play();
-        } else flyingParticleSystem.Pause();
-
+            flyingParticleSystem.emissionRate = emitRate;
+        }
+        else flyingParticleSystem.emissionRate = 0;
     }
 }
