@@ -22,7 +22,7 @@ public class OnPlayerHit : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            collision.gameObject.GetComponent<Player>().m_Health -= m_Damage; 
+            //collision.gameObject.GetComponent<Player>().m_Health -= m_Damage; 
         }
     }
 }
