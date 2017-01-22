@@ -82,6 +82,27 @@ public class Enemy : MonoBehaviour
         Destroy(gameObject);
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            bool isOnTop = true;
+            foreach(ContactPoint point in collision.contacts)
+            {
+                if(point.point.y < transform.position.y + yOffset / 2f)
+                {
+                    isOnTop = false;
+                }
+            }
+
+            if(isOnTop)
+            {
+                Rigidbody playerRB = collision.gameObject.GetComponent<Rigidbody>();
+                playerRB.velocity = new Vector3(playerRB.velocity.x, 10, playerRB.velocity.z);
+            }
+        }
+    }
+
     void CheckGroundStatus()
     {
         RaycastHit hitInfo;

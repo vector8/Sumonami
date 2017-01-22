@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public float m_TotalWeight;
+    private float m_TotalWeight;
+    public float MAX_WEIGHT;
     public float m_Health;
+
+    public ScaleUIControl scaleUI;
 
     // Use this for initialization
     void Start()
@@ -16,6 +19,12 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+    }
 
+    public void addWeight(float weight)
+    {
+        m_TotalWeight += weight;
+        scaleUI.setWeight(m_TotalWeight / MAX_WEIGHT);
     }
 }
