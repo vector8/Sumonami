@@ -1,0 +1,533 @@
+fileFormatVersion: 2
+guid: 08824ebc9f413874cacbf7a8a17dcc1b
+timeCreated: 1485061349
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: head_thing
+    100002: joint1
+    100004: joint10
+    100006: joint10 1
+    100008: joint11
+    100010: joint11 1
+    100012: joint17
+    100014: joint18
+    100016: joint19
+    100018: joint19 1
+    100020: joint2
+    100022: joint20
+    100024: joint20 1
+    100026: joint21
+    100028: joint21 1
+    100030: joint26
+    100032: joint27
+    100034: joint28
+    100036: joint29
+    100038: joint3
+    100040: joint30
+    100042: joint4
+    100044: joint5
+    100046: joint6
+    100048: joint7
+    100050: joint8
+    100052: joint8 1
+    100054: joint9
+    100056: joint9 1
+    100058: l_arm_
+    100060: l_arm_1
+    100062: l_arm_2
+    100064: l_foot
+    100066: Lower_Chest
+    100068: Mid_Chest
+    100070: neck
+    100072: nose
+    100074: //RootNode
+    100076: pigBaddy:Mesh
+    100078: r_arm_
+    100080: r_arm_1
+    100082: r_arm_2
+    100084: r_foot
+    100086: Root
+    100088: stomach
+    100090: stomach1
+    400000: head_thing
+    400002: joint1
+    400004: joint10
+    400006: joint10 1
+    400008: joint11
+    400010: joint11 1
+    400012: joint17
+    400014: joint18
+    400016: joint19
+    400018: joint19 1
+    400020: joint2
+    400022: joint20
+    400024: joint20 1
+    400026: joint21
+    400028: joint21 1
+    400030: joint26
+    400032: joint27
+    400034: joint28
+    400036: joint29
+    400038: joint3
+    400040: joint30
+    400042: joint4
+    400044: joint5
+    400046: joint6
+    400048: joint7
+    400050: joint8
+    400052: joint8 1
+    400054: joint9
+    400056: joint9 1
+    400058: l_arm_
+    400060: l_arm_1
+    400062: l_arm_2
+    400064: l_foot
+    400066: Lower_Chest
+    400068: Mid_Chest
+    400070: neck
+    400072: nose
+    400074: //RootNode
+    400076: pigBaddy:Mesh
+    400078: r_arm_
+    400080: r_arm_1
+    400082: r_arm_2
+    400084: r_foot
+    400086: Root
+    400088: stomach
+    400090: stomach1
+    4300000: pigBaddy:Mesh
+    7400000: pig_run
+    7400002: pig_idle
+    7400004: pig_attack
+    9500000: //RootNode
+    13700000: pigBaddy:Mesh
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: pig_idle
+      takeName: Take 001
+      firstFrame: 2
+      lastFrame: 61
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: joint1
+        weight: 1
+      - path: joint1/joint2
+        weight: 1
+      - path: joint1/joint2/joint3
+        weight: 1
+      - path: joint1/joint2/joint3/joint4
+        weight: 1
+      - path: joint1/joint2/joint3/joint4/joint5
+        weight: 1
+      - path: joint1/joint2/joint3/joint4/joint5/joint6
+        weight: 1
+      - path: joint1/joint2/joint3/joint4/joint5/joint6/joint27
+        weight: 1
+      - path: joint1/joint2/joint3/joint4/joint5/joint6/joint28
+        weight: 1
+      - path: joint1/joint2/joint3/joint4/joint18
+        weight: 1
+      - path: joint1/joint2/joint3/joint4/joint18/joint19
+        weight: 1
+      - path: joint1/joint2/joint3/joint4/joint18/joint19/joint20
+        weight: 1
+      - path: joint1/joint2/joint3/joint4/joint18/joint19/joint20/joint21
+        weight: 1
+      - path: joint1/joint2/joint3/joint4/joint26
+        weight: 1
+      - path: joint1/joint2/joint3/joint4/joint26/joint19 1
+        weight: 1
+      - path: joint1/joint2/joint3/joint4/joint26/joint19 1/joint20 1
+        weight: 1
+      - path: joint1/joint2/joint3/joint4/joint26/joint19 1/joint20 1/joint21 1
+        weight: 1
+      - path: joint1/joint2/joint30
+        weight: 1
+      - path: joint1/joint2/joint30/joint29
+        weight: 1
+      - path: joint1/joint7
+        weight: 1
+      - path: joint1/joint7/joint8 1
+        weight: 1
+      - path: joint1/joint7/joint8 1/joint9 1
+        weight: 1
+      - path: joint1/joint7/joint8 1/joint9 1/joint10 1
+        weight: 1
+      - path: joint1/joint7/joint8 1/joint9 1/joint10 1/joint11 1
+        weight: 1
+      - path: joint1/joint17
+        weight: 1
+      - path: joint1/joint17/joint8
+        weight: 1
+      - path: joint1/joint17/joint8/joint9
+        weight: 1
+      - path: joint1/joint17/joint8/joint9/joint10
+        weight: 1
+      - path: joint1/joint17/joint8/joint9/joint10/joint11
+        weight: 1
+      - path: l_foot
+        weight: 1
+      - path: pigBaddy:Mesh
+        weight: 1
+      - path: r_foot
+        weight: 1
+      - path: Root
+        weight: 1
+      - path: Root/Lower_Chest
+        weight: 1
+      - path: Root/Lower_Chest/Mid_Chest
+        weight: 1
+      - path: Root/Lower_Chest/Mid_Chest/neck
+        weight: 1
+      - path: Root/Lower_Chest/Mid_Chest/neck/head_thing
+        weight: 1
+      - path: Root/Lower_Chest/Mid_Chest/neck/l_arm_
+        weight: 1
+      - path: Root/Lower_Chest/Mid_Chest/neck/l_arm_/l_arm_1
+        weight: 1
+      - path: Root/Lower_Chest/Mid_Chest/neck/l_arm_/l_arm_1/l_arm_2
+        weight: 1
+      - path: Root/Lower_Chest/Mid_Chest/neck/nose
+        weight: 1
+      - path: Root/Lower_Chest/Mid_Chest/neck/r_arm_
+        weight: 1
+      - path: Root/Lower_Chest/Mid_Chest/neck/r_arm_/r_arm_1
+        weight: 1
+      - path: Root/Lower_Chest/Mid_Chest/neck/r_arm_/r_arm_1/r_arm_2
+        weight: 1
+      - path: Root/Lower_Chest/stomach
+        weight: 1
+      - path: Root/Lower_Chest/stomach/stomach1
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: pig_run
+      takeName: Take 001
+      firstFrame: 62
+      lastFrame: 80
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: joint1
+        weight: 1
+      - path: joint1/joint2
+        weight: 1
+      - path: joint1/joint2/joint3
+        weight: 1
+      - path: joint1/joint2/joint3/joint4
+        weight: 1
+      - path: joint1/joint2/joint3/joint4/joint5
+        weight: 1
+      - path: joint1/joint2/joint3/joint4/joint5/joint6
+        weight: 1
+      - path: joint1/joint2/joint3/joint4/joint5/joint6/joint27
+        weight: 1
+      - path: joint1/joint2/joint3/joint4/joint5/joint6/joint28
+        weight: 1
+      - path: joint1/joint2/joint3/joint4/joint18
+        weight: 1
+      - path: joint1/joint2/joint3/joint4/joint18/joint19
+        weight: 1
+      - path: joint1/joint2/joint3/joint4/joint18/joint19/joint20
+        weight: 1
+      - path: joint1/joint2/joint3/joint4/joint18/joint19/joint20/joint21
+        weight: 1
+      - path: joint1/joint2/joint3/joint4/joint26
+        weight: 1
+      - path: joint1/joint2/joint3/joint4/joint26/joint19 1
+        weight: 1
+      - path: joint1/joint2/joint3/joint4/joint26/joint19 1/joint20 1
+        weight: 1
+      - path: joint1/joint2/joint3/joint4/joint26/joint19 1/joint20 1/joint21 1
+        weight: 1
+      - path: joint1/joint2/joint30
+        weight: 1
+      - path: joint1/joint2/joint30/joint29
+        weight: 1
+      - path: joint1/joint7
+        weight: 1
+      - path: joint1/joint7/joint8 1
+        weight: 1
+      - path: joint1/joint7/joint8 1/joint9 1
+        weight: 1
+      - path: joint1/joint7/joint8 1/joint9 1/joint10 1
+        weight: 1
+      - path: joint1/joint7/joint8 1/joint9 1/joint10 1/joint11 1
+        weight: 1
+      - path: joint1/joint17
+        weight: 1
+      - path: joint1/joint17/joint8
+        weight: 1
+      - path: joint1/joint17/joint8/joint9
+        weight: 1
+      - path: joint1/joint17/joint8/joint9/joint10
+        weight: 1
+      - path: joint1/joint17/joint8/joint9/joint10/joint11
+        weight: 1
+      - path: l_foot
+        weight: 1
+      - path: pigBaddy:Mesh
+        weight: 1
+      - path: r_foot
+        weight: 1
+      - path: Root
+        weight: 1
+      - path: Root/Lower_Chest
+        weight: 1
+      - path: Root/Lower_Chest/Mid_Chest
+        weight: 1
+      - path: Root/Lower_Chest/Mid_Chest/neck
+        weight: 1
+      - path: Root/Lower_Chest/Mid_Chest/neck/head_thing
+        weight: 1
+      - path: Root/Lower_Chest/Mid_Chest/neck/l_arm_
+        weight: 1
+      - path: Root/Lower_Chest/Mid_Chest/neck/l_arm_/l_arm_1
+        weight: 1
+      - path: Root/Lower_Chest/Mid_Chest/neck/l_arm_/l_arm_1/l_arm_2
+        weight: 1
+      - path: Root/Lower_Chest/Mid_Chest/neck/nose
+        weight: 1
+      - path: Root/Lower_Chest/Mid_Chest/neck/r_arm_
+        weight: 1
+      - path: Root/Lower_Chest/Mid_Chest/neck/r_arm_/r_arm_1
+        weight: 1
+      - path: Root/Lower_Chest/Mid_Chest/neck/r_arm_/r_arm_1/r_arm_2
+        weight: 1
+      - path: Root/Lower_Chest/stomach
+        weight: 1
+      - path: Root/Lower_Chest/stomach/stomach1
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: pig_attack
+      takeName: Take 001
+      firstFrame: 81
+      lastFrame: 110
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: joint1
+        weight: 1
+      - path: joint1/joint2
+        weight: 1
+      - path: joint1/joint2/joint3
+        weight: 1
+      - path: joint1/joint2/joint3/joint4
+        weight: 1
+      - path: joint1/joint2/joint3/joint4/joint5
+        weight: 1
+      - path: joint1/joint2/joint3/joint4/joint5/joint6
+        weight: 1
+      - path: joint1/joint2/joint3/joint4/joint5/joint6/joint27
+        weight: 1
+      - path: joint1/joint2/joint3/joint4/joint5/joint6/joint28
+        weight: 1
+      - path: joint1/joint2/joint3/joint4/joint18
+        weight: 1
+      - path: joint1/joint2/joint3/joint4/joint18/joint19
+        weight: 1
+      - path: joint1/joint2/joint3/joint4/joint18/joint19/joint20
+        weight: 1
+      - path: joint1/joint2/joint3/joint4/joint18/joint19/joint20/joint21
+        weight: 1
+      - path: joint1/joint2/joint3/joint4/joint26
+        weight: 1
+      - path: joint1/joint2/joint3/joint4/joint26/joint19 1
+        weight: 1
+      - path: joint1/joint2/joint3/joint4/joint26/joint19 1/joint20 1
+        weight: 1
+      - path: joint1/joint2/joint3/joint4/joint26/joint19 1/joint20 1/joint21 1
+        weight: 1
+      - path: joint1/joint2/joint30
+        weight: 1
+      - path: joint1/joint2/joint30/joint29
+        weight: 1
+      - path: joint1/joint7
+        weight: 1
+      - path: joint1/joint7/joint8 1
+        weight: 1
+      - path: joint1/joint7/joint8 1/joint9 1
+        weight: 1
+      - path: joint1/joint7/joint8 1/joint9 1/joint10 1
+        weight: 1
+      - path: joint1/joint7/joint8 1/joint9 1/joint10 1/joint11 1
+        weight: 1
+      - path: joint1/joint17
+        weight: 1
+      - path: joint1/joint17/joint8
+        weight: 1
+      - path: joint1/joint17/joint8/joint9
+        weight: 1
+      - path: joint1/joint17/joint8/joint9/joint10
+        weight: 1
+      - path: joint1/joint17/joint8/joint9/joint10/joint11
+        weight: 1
+      - path: l_foot
+        weight: 1
+      - path: pigBaddy:Mesh
+        weight: 1
+      - path: r_foot
+        weight: 1
+      - path: Root
+        weight: 1
+      - path: Root/Lower_Chest
+        weight: 1
+      - path: Root/Lower_Chest/Mid_Chest
+        weight: 1
+      - path: Root/Lower_Chest/Mid_Chest/neck
+        weight: 1
+      - path: Root/Lower_Chest/Mid_Chest/neck/head_thing
+        weight: 1
+      - path: Root/Lower_Chest/Mid_Chest/neck/l_arm_
+        weight: 1
+      - path: Root/Lower_Chest/Mid_Chest/neck/l_arm_/l_arm_1
+        weight: 1
+      - path: Root/Lower_Chest/Mid_Chest/neck/l_arm_/l_arm_1/l_arm_2
+        weight: 1
+      - path: Root/Lower_Chest/Mid_Chest/neck/nose
+        weight: 1
+      - path: Root/Lower_Chest/Mid_Chest/neck/r_arm_
+        weight: 1
+      - path: Root/Lower_Chest/Mid_Chest/neck/r_arm_/r_arm_1
+        weight: 1
+      - path: Root/Lower_Chest/Mid_Chest/neck/r_arm_/r_arm_1/r_arm_2
+        weight: 1
+      - path: Root/Lower_Chest/stomach
+        weight: 1
+      - path: Root/Lower_Chest/stomach/stomach1
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 20
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
