@@ -15,6 +15,10 @@ public class Player : MonoBehaviour
     {
 
     }
+    public float getCurrentWeight()
+    {
+        return m_TotalWeight;
+    }
 
     // Update is called once per frame
     void Update()

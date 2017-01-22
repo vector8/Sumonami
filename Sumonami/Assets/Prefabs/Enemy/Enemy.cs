@@ -15,6 +15,7 @@ public class Enemy : MonoBehaviour
     public float knockupPower = 10f;
     public float m_GroundCheckDistance = 0.3f;
     public float dropDistanceToDie;
+    public Animator PigAnim;
 
     private GameObject m_PlayerRef;
     private Rigidbody m_rb;
@@ -48,10 +49,13 @@ public class Enemy : MonoBehaviour
 
             if (distance <= m_DistanceToAttack)
             {
+                PigAnim.SetBool("isRun", false);
+                PigAnim.SetTrigger("isAttack");
                 Attack();
             }
             else
             {
+                PigAnim.SetBool("isRun", true);
                 Vector3 velocity = gameObject.transform.forward * m_Speed;
                 velocity.y = m_rb.velocity.y;
                 m_rb.velocity = velocity;
