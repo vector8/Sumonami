@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    private float m_TotalWeight;
+    public float m_TotalWeight;
     public float MAX_WEIGHT;
-    public float m_Health;
+    public float damage;
 
     public ScaleUIControl scaleUI;
 
     // Use this for initialization
     void Start()
     {
-
+        scaleUI.setWeight(m_TotalWeight / MAX_WEIGHT);
     }
 
     // Update is called once per frame
@@ -25,6 +25,18 @@ public class Player : MonoBehaviour
     public void addWeight(float weight)
     {
         m_TotalWeight += weight;
+        scaleUI.setWeight(m_TotalWeight / MAX_WEIGHT);
+    }
+
+    public void removeWeight(float weight)
+    {
+        m_TotalWeight -= weight;
+        if(m_TotalWeight <= 0)
+        {
+            m_TotalWeight = 0;
+            // TODO: die
+        }
+
         scaleUI.setWeight(m_TotalWeight / MAX_WEIGHT);
     }
 }
