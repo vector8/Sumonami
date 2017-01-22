@@ -50,7 +50,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         float immunityFromKnockupTimer = 0f;
         public float IMMUNITY_DURATION = 2f;
 
-
+        Vector3 m_LastValidPosition; //joss
         void Start()
         {
             m_Animator = GetComponent<Animator>();
@@ -62,6 +62,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
             m_Rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
             m_OrigGroundCheckDistance = m_GroundCheckDistance;
+
+            m_LastValidPosition = m_Rigidbody.position; //joss
         }
 
         void Update()
@@ -229,6 +231,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                 sumoAnimator.Play("Player_Jump");
                 fall.clip = grunt;
                 fall.Play();
+
+                m_LastValidPosition = m_Rigidbody.position; //joss
             }
         }
 
@@ -349,6 +353,20 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                         //}
                     }
                 }
+            }
+        }
+        void revertPosition() //joss
+        {
+            m_Rigidbody.velocity = new Vector3(0, 0, 0);
+            m_LastValidPosition = new Vector3(m_LastValidPosition.x, m_LastValidPosition.y, m_LastValidPosition.z);
+            this.GetComponent<Transform>().position = m_LastValidPosition;
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.tag == "kill field")
+            {
+                revertPosition();
             }
         }
     }
